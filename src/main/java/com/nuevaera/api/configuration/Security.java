@@ -16,6 +16,8 @@ public class Security {
         ).authorizeHttpRequests(
                 (auth) ->{
                     auth.requestMatchers("/api/v1/roles/**").permitAll()
+                            .requestMatchers("/api/v1/persons/**").permitAll()
+                            .requestMatchers("/api/v1/users/**").permitAll()
                             .anyRequest().authenticated();
                 }
         ).httpBasic(Customizer.withDefaults());
